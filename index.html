@@ -250,99 +250,6 @@
       color: var(--gray-700);
     }
 
-    /* PRICING */
-    .pricing { background: linear-gradient(180deg, #F0FDF4 0%, var(--off-white) 100%); }
-    .pricing-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      max-width: 760px;
-    }
-    .price-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 40px 36px;
-      box-shadow: var(--shadow);
-      position: relative;
-      border: 2px solid transparent;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .price-card.featured {
-      border-color: var(--green);
-    }
-    .featured-badge {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--green);
-      color: var(--white);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      padding: 5px 16px;
-      border-radius: 100px;
-      white-space: nowrap;
-    }
-    .price-name {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--gray-500);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-    }
-    .price-amount {
-      font-size: 3rem;
-      font-weight: 900;
-      letter-spacing: -2px;
-      color: var(--gray-900);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .price-amount sup {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 0;
-      vertical-align: super;
-    }
-    .price-desc {
-      color: var(--gray-500);
-      font-size: 0.9rem;
-      margin-top: 16px;
-      line-height: 1.6;
-    }
-    .price-features {
-      margin-top: 24px;
-      list-style: none;
-    }
-    .price-features li {
-      font-size: 0.9rem;
-      color: var(--gray-700);
-      padding: 6px 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .price-features li::before {
-      content: '✓';
-      color: var(--green);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .pricing-note {
-      margin-top: 32px;
-      padding: 20px 24px;
-      background: rgba(46,139,87,0.08);
-      border-left: 4px solid var(--green);
-      border-radius: 0 8px 8px 0;
-      color: var(--gray-700);
-      font-size: 0.95rem;
-      max-width: 760px;
-    }
-    .pricing-note strong { color: var(--green); }
-
     /* CTA SECTION */
     .cta-section {
       background: linear-gradient(135deg, #1E3A5F 0%, #164E35 100%);
@@ -379,7 +286,7 @@
       nav { padding: 0 16px; }
       .hero { padding: 72px 16px 64px; }
       section { padding: 60px 16px; }
-      .steps, .pricing-cards { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
       .trades-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 400px) {
@@ -471,41 +378,6 @@
           <div class="trade-icon">🔨</div>
           <span class="trade-name">General Contracting</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="pricing">
-    <div class="section-inner">
-      <p class="section-label">Pricing</p>
-      <h2>Pay only for what you want.</h2>
-      <p class="section-desc">Two lead types. No subscriptions, no surprises. You're in control.</p>
-      <div class="pricing-cards">
-        <div class="price-card">
-          <p class="price-name">Basic Lead</p>
-          <div class="price-amount"><sup>$</sup>100</div>
-          <p class="price-desc">Homeowner contact info delivered instantly the moment they submit a request.</p>
-          <ul class="price-features">
-            <li>Full contact info delivered instantly</li>
-            <li>Exclusive — never shared</li>
-            <li>You follow up on your schedule</li>
-          </ul>
-        </div>
-        <div class="price-card featured">
-          <div class="featured-badge">Most Popular</div>
-          <p class="price-name">Nurtured Lead</p>
-          <div class="price-amount"><sup>$</sup>275</div>
-          <p class="price-desc">We follow up with the homeowner until they're appointment-ready, then hand them off to you.</p>
-          <ul class="price-features">
-            <li>We call &amp; follow up for you</li>
-            <li>Delivered appointment-ready</li>
-            <li>Higher close rate, less legwork</li>
-          </ul>
-        </div>
-      </div>
-      <div class="pricing-note">
-        <strong>No monthly fees. No contracts. Cancel anytime.</strong> You only pay when you choose to claim a lead. There are no minimums and no commitments.
       </div>
     </div>
   </section>
