@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FloridaLeads.co — Exclusive Local Leads for Florida Contractors</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #F47920;
+      --orange-light: #FF9A45;
+      --green: #2E8B57;
+      --green-light: #3DAA6C;
+      --sky: #0EA5E9;
+      --sky-light: #38BDF8;
+      --white: #FFFFFF;
+      --off-white: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-500: #64748B;
+      --gray-700: #334155;
+      --gray-900: #0F172A;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--gray-900);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .logo span { color: var(--orange); }
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--orange-light); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #164E35 100%);
+      color: var(--white);
+      padding: 96px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(244,121,32,0.25);
+      border: 1px solid rgba(244,121,32,0.5);
+      color: var(--orange-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(255,255,255,0.75);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      padding: 18px 40px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 32px rgba(244,121,32,0.4);
+    }
+    .hero-cta:hover {
+      background: var(--orange-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(244,121,32,0.5);
+    }
+    .hero-sub {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* SECTION COMMON */
+    section { padding: 80px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--gray-500);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin-bottom: 56px;
+    }
+
+    /* HOW IT WORKS */
+    .how { background: var(--off-white); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .step {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      position: relative;
+      border-top: 4px solid transparent;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step:nth-child(1) { border-top-color: var(--sky); }
+    .step:nth-child(2) { border-top-color: var(--green); }
+    .step:nth-child(3) { border-top-color: var(--orange); }
+    .step:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    .step:nth-child(1) .step-number { background: rgba(14,165,233,0.12); color: var(--sky); }
+    .step:nth-child(2) .step-number { background: rgba(46,139,87,0.12); color: var(--green); }
+    .step:nth-child(3) .step-number { background: rgba(244,121,32,0.12); color: var(--orange); }
+    .step h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--gray-900);
+    }
+    .step p { color: var(--gray-500); font-size: 0.95rem; }
+
+    /* TRADES */
+    .trades { background: var(--white); }
+    .trades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .trade-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--gray-100);
+      border-radius: 10px;
+      padding: 18px 20px;
+      transition: background 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .trade-card:hover {
+      background: var(--gray-200);
+      transform: translateX(4px);
+    }
+    .trade-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .trade-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--gray-700);
+    }
+
+    /* PRICING */
+    .pricing { background: linear-gradient(180deg, #F0FDF4 0%, var(--off-white) 100%); }
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 760px;
+    }
+    .price-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px 36px;
+      box-shadow: var(--shadow);
+      position: relative;
+      border: 2px solid transparent;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .price-card.featured {
+      border-color: var(--green);
+    }
+    .featured-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 5px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .price-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .price-amount {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: var(--gray-900);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .price-amount sup {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      vertical-align: super;
+    }
+    .price-desc {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+    .price-features {
+      margin-top: 24px;
+      list-style: none;
+    }
+    .price-features li {
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      padding: 6px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .price-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .pricing-note {
+      margin-top: 32px;
+      padding: 20px 24px;
+      background: rgba(46,139,87,0.08);
+      border-left: 4px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      color: var(--gray-700);
+      font-size: 0.95rem;
+      max-width: 760px;
+    }
+    .pricing-note strong { color: var(--green); }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, #1E3A5F 0%, #164E35 100%);
+      text-align: center;
+      padding: 96px 24px;
+    }
+    .cta-section h2 { color: var(--white); margin-bottom: 16px; }
+    .cta-section p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--gray-900);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--orange); }
+    .footer-dot { margin: 0 8px; opacity: 0.3; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      nav { padding: 0 16px; }
+      .hero { padding: 72px 16px 64px; }
+      section { padding: 60px 16px; }
+      .steps, .pricing-cards { grid-template-columns: 1fr; }
+      .trades-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 400px) {
+      .trades-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">Florida<span>Leads</span>.co</a>
+      <a href="https://floridawaterdamageexperts.com/contractor.html" class="nav-cta">Apply Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Florida Contractors Only</div>
+    <h1>Exclusive Local Leads for<br /><em>Florida Contractors</em></h1>
+    <p>No shared leads. No retainers. Only pay for real homeowner requests in your service area.</p>
+    <a href="https://floridawaterdamageexperts.com/contractor.html" class="hero-cta">Apply For Leads In Your Area</a>
+    <p class="hero-sub">No monthly fees &nbsp;·&nbsp; No contracts &nbsp;·&nbsp; Cancel anytime</p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="section-inner">
+      <p class="section-label">How It Works</p>
+      <h2>Simple. Fast. Fair.</h2>
+      <p class="section-desc">Three steps to start getting exclusive leads from homeowners in your market.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Apply for your trade &amp; area</h3>
+          <p>Tell us your trade and the Florida zip codes or counties you serve. Approval is fast.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Homeowners submit requests 24/7</h3>
+          <p>Homeowners in your area come to us with real jobs. We receive requests around the clock.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Claim it — you only pay when you want it</h3>
+          <p>First contractor to claim a lead gets it exclusively. No lead? No charge. It's that simple.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADES -->
+  <section class="trades">
+    <div class="section-inner">
+      <p class="section-label">Trades We Serve</p>
+      <h2>Your trade, your territory.</h2>
+      <p class="section-desc">We serve contractors across every major home service trade throughout Florida.</p>
+      <div class="trades-grid">
+        <div class="trade-card">
+          <div class="trade-icon">💧</div>
+          <span class="trade-name">Water Damage &amp; Restoration</span>
+        </div>
+        <div class="trade-card">
+          <div class="trade-icon">🏠</div>
+          <span class="trade-name">Roofing</span>
+        </div>
+        <div class="trade-card">
+          <div class="trade-icon">❄️</div>
+          <span class="trade-name">HVAC</span>
+        </div>
+        <div class="trade-card">
+          <div class="trade-icon">🔧</div>
+          <span class="trade-name">Plumbing</span>
+        </div>
+        <div class="trade-card">
+          <div class="trade-icon">☀️</div>
+          <span class="trade-name">Solar</span>
+        </div>
+        <div class="trade-card">
+          <div class="trade-icon">🌿</div>
+          <span class="trade-name">Landscaping</span>
+        </div>
+        <div class="trade-card">
+          <div class="trade-icon">🧪</div>
+          <span class="trade-name">Mold Remediation</span>
+        </div>
+        <div class="trade-card">
+          <div class="trade-icon">🔨</div>
+          <span class="trade-name">General Contracting</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="section-inner">
+      <p class="section-label">Pricing</p>
+      <h2>Pay only for what you want.</h2>
+      <p class="section-desc">Two lead types. No subscriptions, no surprises. You're in control.</p>
+      <div class="pricing-cards">
+        <div class="price-card">
+          <p class="price-name">Basic Lead</p>
+          <div class="price-amount"><sup>$</sup>100</div>
+          <p class="price-desc">Homeowner contact info delivered instantly the moment they submit a request.</p>
+          <ul class="price-features">
+            <li>Full contact info delivered instantly</li>
+            <li>Exclusive — never shared</li>
+            <li>You follow up on your schedule</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <div class="featured-badge">Most Popular</div>
+          <p class="price-name">Nurtured Lead</p>
+          <div class="price-amount"><sup>$</sup>275</div>
+          <p class="price-desc">We follow up with the homeowner until they're appointment-ready, then hand them off to you.</p>
+          <ul class="price-features">
+            <li>We call &amp; follow up for you</li>
+            <li>Delivered appointment-ready</li>
+            <li>Higher close rate, less legwork</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pricing-note">
+        <strong>No monthly fees. No contracts. Cancel anytime.</strong> You only pay when you choose to claim a lead. There are no minimums and no commitments.
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="cta-section">
+    <div class="section-inner">
+      <h2>Ready to grow your Florida business?</h2>
+      <p>Apply today and start receiving exclusive leads from homeowners in your service area.</p>
+      <a href="https://floridawaterdamageexperts.com/contractor.html" class="hero-cta">Apply For Leads In Your Area</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <strong style="color:rgba(255,255,255,0.75)">FloridaLeads.co</strong>
+      <span class="footer-dot">|</span>
+      <a href="mailto:daniel@floridaleads.co">daniel@floridaleads.co</a>
+      <span class="footer-dot">|</span>
+      A Florida-first lead generation platform
+    </p>
+  </footer>
+
+</body>
+</html>
